@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
      3. HERO SECTION TYPING ANIMATION
      ========================================================================== */
   const typingTextEl = document.getElementById('typing-text');
-  const roles = ['Data Scientist', 'Full Stack Developer', 'AI/ML Engineer'];
+  const roles = ['intelligent systems', 'full-stack applications', 'data-driven solutions'];
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
