@@ -1643,6 +1643,37 @@ body.light-theme .toast {
   }
   
   .about-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .stat-card {
+    padding: 16px;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  /* Optimize Terminal layout for narrow mobile viewports */
+  .terminal-window {
+    font-size: 0.75rem;
+  }
+  .terminal-body {
+    padding: 14px 10px;
+    gap: 8px;
+  }
+  .terminal-header {
+    height: 32px;
+    padding: 0 12px;
+  }
+  .terminal-buttons {
+    left: 12px;
+  }
+  .terminal-tab {
+    height: 26px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    margin-top: 6px;
   }
 }
