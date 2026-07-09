@@ -995,6 +995,16 @@ body.light-theme .skill-tag {
   color: #f472b6;
 }
 
+.organic-bg {
+  background: #092c1e;
+  color: #10b981;
+}
+
+.hotel-bg {
+  background: #2a1b0c;
+  color: #fbbf24;
+}
+
 .project-card:hover .project-img-placeholder {
   transform: scale(1.04);
 }
