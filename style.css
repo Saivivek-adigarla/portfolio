@@ -1692,3 +1692,240 @@ body.light-theme .toast {
     margin-top: 6px;
   }
 }
+
+/* ==========================================================================
+   7. INTERACTIVE TERMINAL SIMULATOR LOGS
+   ========================================================================== */
+.terminal-run-btn {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+
+.terminal-run-btn:hover {
+  background: #22c55e;
+  color: #ffffff;
+  border-color: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+}
+
+.terminal-console {
+  background: #07070a;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #e4e4e7;
+  padding: 15px 20px;
+  max-height: 180px;
+  overflow-y: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terminal-console.hidden {
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  border-top: none;
+}
+
+.console-header {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  padding-bottom: 4px;
+}
+
+.console-log {
+  margin: 0;
+  white-space: pre-wrap;
+  color: #38bdf8;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   8. COPY TO CLIPBOARD UX HELPERS
+   ========================================================================== */
+.contact-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.contact-item-wrapper:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.contact-item-wrapper .contact-item {
+  padding: 0;
+  border: none;
+  background: none;
+  flex-grow: 1;
+}
+
+.copy-btn {
+  background: none;
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  position: relative;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.copy-btn .tooltip {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background: #18181b;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
+}
+
+.copy-btn:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   9. PRINT RESUME EXPORT LAYOUT
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  #main-header,
+  #theme-toggle,
+  #menu-btn,
+  .bg-blur-shapes,
+  .grid-bg-overlay,
+  .hero-cta,
+  .social-links,
+  .scroll-indicator,
+  .terminal-run-btn,
+  .terminal-console,
+  .copy-btn,
+  .project-filters,
+  .project-links,
+  .main-footer {
+    display: none !important;
+  }
+
+  .section-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .glass-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+    margin-bottom: 20px !important;
+  }
+
+  .hero-grid {
+    display: block !important;
+    text-align: left !important;
+  }
+
+  .hero-title {
+    font-size: 26pt !important;
+    color: #000000 !important;
+    margin-bottom: 5pt !important;
+  }
+
+  .hero-subtitle {
+    font-size: 12pt !important;
+    color: #555555 !important;
+    margin-bottom: 10pt !important;
+  }
+
+  .hero-terminal {
+    margin-top: 20px !important;
+  }
+
+  .terminal-window {
+    background: #f4f4f5 !important;
+    border: 1px solid #e4e4e7 !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+  }
+
+  .terminal-header {
+    display: none !important;
+  }
+
+  .terminal-body {
+    background: #f4f4f5 !important;
+    padding: 10px !important;
+  }
+
+  .line-numbers {
+    display: none !important;
+  }
+
+  .code-editor code {
+    color: #000000 !important;
+  }
+
+  .code-editor .keyword,
+  .code-editor .class-name,
+  .code-editor .method,
+  .code-editor .self,
+  .code-editor .string {
+    color: #000000 !important;
+    font-weight: 500 !important;
+  }
+}

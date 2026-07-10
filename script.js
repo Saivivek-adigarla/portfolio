@@ -320,4 +320,108 @@ document.addEventListener('DOMContentLoaded', () => {
     animateTimelineOnScroll();
   }
 
+  /* ==========================================================================
+     8. INTERACTIVE IDE TERMINAL RUN SIMULATOR (HOME PAGE ONLY)
+     ========================================================================== */
+  const runBtn = document.getElementById('run-btn');
+  const terminalConsole = document.getElementById('terminal-console');
+  const consoleLogEl = terminalConsole ? terminalConsole.querySelector('.console-log') : null;
+
+  if (runBtn && terminalConsole && consoleLogEl) {
+    const logLines = [
+      "$ python profile.py",
+      "[INFO] Booting AI engineering environment kernel...",
+      "[INFO] Loading vector database metadata indexes (size: 1536)...",
+      "[SUCCESS] Vector database connected successfully.",
+      "[INFO] Initializing Developer object properties...",
+      "[SUCCESS] Developer initialized: 'Adigarla Sai Vivek'",
+      ">> Name:     Adigarla Sai Vivek",
+      ">> Status:   Ready for professional roles / collaborations",
+      ">> Skills:   Python, FastAPI, React, LLMs, Scikit-learn",
+      ">> Objective: Eager to develop impactful technology solutions!"
+    ];
+
+    let typingInterval;
+    let isRunning = false;
+
+    runBtn.addEventListener('click', () => {
+      if (isRunning) {
+        // Toggle closed
+        terminalConsole.classList.add('hidden');
+        runBtn.innerHTML = '<i class="fa-solid fa-play"></i> Run';
+        clearInterval(typingInterval);
+        consoleLogEl.textContent = '';
+        isRunning = false;
+        return;
+      }
+
+      // Initialize run state
+      isRunning = true;
+      terminalConsole.classList.remove('hidden');
+      runBtn.innerHTML = '<i class="fa-solid fa-square"></i> Stop';
+      consoleLogEl.textContent = '';
+      
+      let lineIndex = 0;
+      
+      const printNextLine = () => {
+        if (lineIndex < logLines.length) {
+          consoleLogEl.textContent += logLines[lineIndex] + '\n';
+          
+          // Auto scroll to bottom of console
+          terminalConsole.scrollTop = terminalConsole.scrollHeight;
+          
+          lineIndex++;
+        } else {
+          clearInterval(typingInterval);
+          runBtn.innerHTML = '<i class="fa-solid fa-rotate-right"></i> Reset';
+        }
+      };
+
+      printNextLine();
+      // Type out logs line-by-line with staggered timing
+      typingInterval = setInterval(printNextLine, 350);
+    });
+  }
+
+  /* ==========================================================================
+     9. CLIPBOARD COPY UX HELPERS (CONTACT PAGE ONLY)
+     ========================================================================== */
+  const copyButtons = document.querySelectorAll('.copy-btn');
+
+  if (copyButtons.length > 0) {
+    copyButtons.forEach(btn => {
+      const textToCopy = btn.getAttribute('data-copy');
+      const tooltip = btn.querySelector('.tooltip');
+
+      btn.addEventListener('click', () => {
+        if (textToCopy) {
+          navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+              // Update tooltip
+              tooltip.textContent = 'Copied!';
+              btn.style.color = 'var(--accent-success)';
+              btn.style.borderColor = 'var(--accent-success)';
+              
+              // Reset after 2 seconds
+              setTimeout(() => {
+                tooltip.textContent = 'Copy';
+                btn.style.color = '';
+                btn.style.borderColor = '';
+              }, 2000);
+            })
+            .catch(err => {
+              console.error('Failed to copy to clipboard: ', err);
+            });
+        }
+      });
+      
+      // Reset text on mouseout in case click timer didn't finish
+      btn.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+          tooltip.textContent = 'Copy';
+        }, 300);
+      });
+    });
+  }
+
 });
