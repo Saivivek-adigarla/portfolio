@@ -1005,6 +1005,11 @@ body.light-theme .skill-tag {
   color: #fbbf24;
 }
 
+.ai-bg {
+  background: #18142c;
+  color: #c084fc;
+}
+
 .project-card:hover .project-img-placeholder {
   transform: scale(1.04);
 }
