@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ATS-compliant resume of Adigarla Sai Vivek - Data Scientist & Full Stack Developer. Clean, single-page print format.">
+  <title>Resume | Adigarla Sai Vivek</title>
+  
+  <style>
+    /* ==========================================================================
+       ATS COMPLIANT RESUME STYLING (PRINT OPTIMIZED)
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000000;
+      background-color: #ffffff;
+      line-height: 1.35;
+      font-size: 10pt;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Floating UI Controls (hidden during print) */
+    .no-print-bar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .no-print-bar a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .no-print-bar a:hover {
+      color: #ffffff;
+    }
+
+    .print-btn {
+      background: #3b82f6;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .print-btn:hover {
+      background: #2563eb;
+    }
+
+    /* Resume Structure */
+    .resume-header {
+      text-align: center;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 8px;
+    }
+
+    .resume-name {
+      font-size: 20pt;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .resume-contact {
+      font-size: 8.5pt;
+      color: #333333;
+      word-spacing: 1px;
+    }
+
+    .resume-contact a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .resume-section {
+      margin-top: 10px;
+    }
+
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-bottom: 1px solid #000000;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .section-content {
+      padding-left: 2px;
+    }
+
+    p {
+      margin-bottom: 4px;
+      text-align: justify;
+    }
+
+    /* Skills Grid-like lists flattened for ATS parsing */
+    .skills-category {
+      margin-bottom: 4px;
+    }
+    
+    .skills-category strong {
+      font-weight: bold;
+    }
+
+    /* Experience & Projects entry structure */
+    .entry {
+      margin-bottom: 8px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .entry-subheader {
+      display: flex;
+      justify-content: space-between;
+      font-style: italic;
+      color: #333333;
+      margin-bottom: 3px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 18px;
+      margin-bottom: 4px;
+    }
+
+    li {
+      margin-bottom: 3px;
+      text-align: justify;
+    }
+
+    /* Page-Break controls to guarantee 1-page fitment on A4/Letter */
+    @media print {
+      body {
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 9.5pt !important; /* Slightly smaller for strict print margins */
+        line-height: 1.3 !important;
+      }
+
+      .no-print-bar {
+        display: none !important;
+      }
+      
+      @page {
+        size: letter;
+        margin: 0.4in;
+      }
+
+      .resume-section {
+        margin-top: 8px !important;
+      }
+      
+      .section-title {
+        margin-bottom: 4px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Navigation Panel (Hidden on Print) -->
+  <div class="no-print-bar">
+    <a href="index.html">&larr; Back to Portfolio</a>
+    <button onclick="window.print()" class="print-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <!-- ATS Document Wrapper -->
+  <div class="resume-wrapper">
+    
+    <!-- Contact Info -->
+    <header class="resume-header">
+      <h1 class="resume-name">Adigarla Sai Vivek</h1>
+      <div class="resume-contact">
+        Phone: +91-7661098755 | 
+        Email: <a href="mailto:adigarlasaivivek@gmail.com">adigarlasaivivek@gmail.com</a> | <br>
+        LinkedIn: <a href="https://www.linkedin.com/in/adigarla-sai-vivek-157503320" target="_blank">linkedin.com/in/adigarla-sai-vivek-157503320</a> | 
+        GitHub: <a href="https://github.com/Saivivek-adigarla" target="_blank">github.com/Saivivek-adigarla</a>
+      </div>
+    </header>
+
+    <!-- Objective -->
+    <section class="resume-section">
+      <h2 class="section-title">Objective</h2>
+      <div class="section-content">
+        <p>A motivated and enthusiastic individual with strong computer science fundamentals, dedicated to developing impactful technology solutions. Experienced in designing and improving software products, with hands-on exposure to coding, and eager to contribute to innovation while continuously learning and collaborating in dynamic engineering environments. Known for Accountability, Adaptability, Communication, Problem Solving, and Proactive thinking.</p>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="resume-section">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-content">
+        <div class="skills-category">
+          <strong>Languages:</strong> Java, Python, JavaScript, C, SQL
+        </div>
+        <div class="skills-category">
+          <strong>Frameworks &amp; Development:</strong> FastAPI, Flask, React.js, Node.js, Express.js, PyQt, REST APIs
+        </div>
+        <div class="skills-category">
+          <strong>AI / Data Science:</strong> Pandas, NumPy, Matplotlib, Scikit-learn, Generative AI, Prompt Engineering, LLMs
+        </div>
+        <div class="skills-category">
+          <strong>Databases:</strong> MySQL, MongoDB
+        </div>
+        <div class="skills-category">
+          <strong>Tools:</strong> Git, GitHub, Power BI, Tableau, Figma, Postman, VS Code, Google Colab
+        </div>
+        <div class="skills-category">
+          <strong>Core Concepts:</strong> Data Structures &amp; Algorithms, OOP, Problem Solving, Agile Development
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="resume-section">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="section-content">
+        <!-- Freelance Full Stack -->
+        <div class="entry">
+          <div class="entry-header">
+            <span>Freelance Full Stack Developer</span>
+            <span>2026</span>
+          </div>
+          <div class="entry-subheader">
+            <span>Roots of Araku &amp; Pickurstay Hotels (Commercial Platforms)</span>
+            <span>Remote</span>
+          </div>
+          <ul>
+            <li>Designed and developed a responsive e-commerce and brand showcase website using MERN Stack for organic brand "Roots of Araku". Created modern UIs, handled schema designs, and optimized load performance.</li>
+            <li>Built the stays discovery and room reservation platform "Pickurstay Hotels" using React.js and REST APIs. Integrated room selection flows, search indicators, and optimized loading speed.</li>
+            <li>Handled end-to-end SDLC: requirement gathering, wireframes, frontend development, APIs integration, database configs, testing, and Vercel hosting.</li>
+          </ul>
+        </div>
+
+        <!-- Imaginnovate -->
+        <div class="entry">
+          <div class="entry-header">
+            <span>Data Science Intern</span>
+            <span>Aug 2025 - Nov 2025</span>
+          </div>
+          <div class="entry-subheader">
+            <span>Imaginnovate</span>
+            <span>Vizag, India</span>
+          </div>
+          <ul>
+            <li>Developed NLP-based Python modules using Generative AI and prompt engineering techniques.</li>
+            <li>Built and optimized AI models to improve text processing efficiency, accuracy, and validation speeds.</li>
+            <li>Collaborated in an AI-focused agile development environment to deliver production-grade scalable solutions.</li>
+          </ul>
+        </div>
+
+        <!-- APSSDC -->
+        <div class="entry">
+          <div class="entry-header">
+            <span>Data Analyst (Python Internship)</span>
+            <span>Apr 2025 - Jun 2025</span>
+          </div>
+          <div class="entry-subheader">
+            <span>Andhra Pradesh Skill Development Corporation (APSSDC)</span>
+            <span>Andhra Pradesh, India</span>
+          </div>
+          <ul>
+            <li>Analyzed complex structured datasets to identify trends and statistical patterns for business insights.</li>
+            <li>Created interactive analytical dashboards using Python, Excel, and Power BI tools to present data findings.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="resume-section">
+      <h2 class="section-title">Projects</h2>
+      <div class="section-content">
+        <!-- AI Engineering OS -->
+        <div class="entry">
+          <div class="entry-header">
+            <span>AI Engineering OS</span>
+            <span><a href="https://github.com/Saivivek-adigarla/AI-Engineering-OS" target="_blank">Link</a></span>
+          </div>
+          <ul>
+            <li>Designed a development framework and workspace configuration for AI engineers, integrating RAG vectors, Ollama local inference configurations, CrewAI agent systems, and prompt evaluation tracking.</li>
+          </ul>
+        </div>
+
+        <!-- Grammar Assistance -->
+        <div class="entry">
+          <div class="entry-header">
+            <span>Grammar Assistance (Python | Backend &amp; Frontend)</span>
+            <span><a href="https://github.com/Saivivek-adigarla" target="_blank">Link</a></span>
+          </div>
+          <ul>
+            <li>Built a desktop AI grammar assistant using Python, FastAPI, and PyQt with system-wide keyboard hooks, integrating Gemini API asynchronously to handle live user input and automate NLP processing.</li>
+          </ul>
+        </div>
+
+        <!-- Smart Job Search Project -->
+        <div class="entry">
+          <div class="entry-header">
+            <span>Smart Job Search Project</span>
+            <span><a href="https://github.com/Saivivek-adigarla" target="_blank">Link</a></span>
+          </div>
+          <ul>
+            <li>Analyzed job trends across 5+ roles and multiple locations to extract in-demand skills, building pipelines and interactive Power BI charts to guide employment seeking decisions.</li>
+          </ul>
+        </div>
+
+        <!-- Intelligent Fraud Detection -->
+        <div class="entry">
+          <div class="entry-header">
+            <span>Intelligent Fraud Detection and Prevention</span>
+            <span><a href="https://github.com/Saivivek-adigarla" target="_blank">Link</a></span>
+          </div>
+          <ul>
+            <li>Built a real-time transaction fraud threat analysis system utilizing Scikit-learn (Random Forest, Logistic Regression) combined with custom rule-based heuristics for accurate risk prediction.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="resume-section">
+      <h2 class="section-title">Education</h2>
+      <div class="section-content">
+        <div class="entry">
+          <div class="entry-header">
+            <span>B.Tech in CSE (Data Science)</span>
+            <span>2022 - 2026</span>
+          </div>
+          <div class="entry-subheader">
+            <span>Nadimpalli Satyanarayana Raju Institute of Technology</span>
+            <span>CGPA: 7.59 / 10</span>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <span>State Board of Intermediate Education</span>
+            <span>2020 - 2022</span>
+          </div>
+          <div class="entry-subheader">
+            <span>Narayana Junior College</span>
+            <span>Percentage: 70%</span>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <span>State Board of Secondary Education</span>
+            <span>2020</span>
+          </div>
+          <div class="entry-subheader">
+            <span>Sri Vignan Public School</span>
+            <span>Percentage: 99.4%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="resume-section">
+      <h2 class="section-title">Certificates</h2>
+      <div class="section-content">
+        <ul>
+          <li><strong>Amazon:</strong> Solutions Architecture Job Simulation</li>
+          <li><strong>MongoDB:</strong> MongoDB and the Document Model</li>
+          <li><strong>IIT Bombay Spoken Tutorial Project:</strong> Java Programming Certification</li>
+          <li><strong>Coursera:</strong> Introduction to Artificial Intelligence (AI)</li>
+          <li><strong>Microsoft:</strong> Introduction to Generative AI</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Co-Curricular Activities -->
+    <section class="resume-section">
+      <h2 class="section-title">Co-Curricular Activities</h2>
+      <div class="section-content">
+        <ul>
+          <li>Participated in **24-hours Hackathon 2024** conducted at NSRIT.</li>
+          <li>Participated in **"Hack2Impact"** hackathon organized by IIC.</li>
+          <li>Attended professional training workshop on **Blockchain** at Kakinada hosted by GVPC.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Auto Print Prompt Script -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // Auto prompt print dialog after a slight delay
+      setTimeout(() => {
+        window.print();
+      }, 600);
+    });
+  </script>
+</body>
+</html>
