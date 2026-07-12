@@ -321,30 +321,56 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     8. INTERACTIVE IDE TERMINAL RUN SIMULATOR (HOME PAGE ONLY)
+     8. INTERACTIVE IDE TERMINAL RUN SIMULATOR & TAB SWITCHER (HOME PAGE ONLY)
      ========================================================================== */
   const runBtn = document.getElementById('run-btn');
   const terminalConsole = document.getElementById('terminal-console');
   const consoleLogEl = terminalConsole ? terminalConsole.querySelector('.console-log') : null;
+  const terminalTabs = document.querySelectorAll('.terminal-tab');
+  const terminalBodies = document.querySelectorAll('.terminal-body');
 
+  // Tab switching logic
+  if (terminalTabs.length > 0 && terminalBodies.length > 0) {
+    terminalTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.getAttribute('data-tab');
+        
+        // Remove active state from all tabs and add to active one
+        terminalTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Hide all body blocks and show target body block
+        terminalBodies.forEach(body => {
+          body.style.display = 'none';
+          body.classList.remove('active');
+        });
+        
+        const activeBody = document.getElementById(`tab-content-${targetTab}`);
+        if (activeBody) {
+          activeBody.style.display = 'flex';
+          activeBody.classList.add('active');
+        }
+
+        // Reset Run Console states to keep layouts clean when switching files
+        if (terminalConsole && !terminalConsole.classList.contains('hidden')) {
+          terminalConsole.classList.add('hidden');
+          if (runBtn) runBtn.innerHTML = '<i class="fa-solid fa-play"></i> Run';
+          if (consoleLogEl) consoleLogEl.textContent = '';
+        }
+      });
+    });
+  }
+
+  // Code runner logs simulation
   if (runBtn && terminalConsole && consoleLogEl) {
-    const logLines = [
-      "$ python profile.py",
-      "[INFO] Booting AI engineering environment kernel...",
-      "[INFO] Loading vector database metadata indexes (size: 1536)...",
-      "[SUCCESS] Vector database connected successfully.",
-      "[INFO] Initializing Developer object properties...",
-      "[SUCCESS] Developer initialized: 'Adigarla Sai Vivek'",
-      ">> Name:     Adigarla Sai Vivek",
-      ">> Status:   Ready for professional roles / collaborations",
-      ">> Skills:   Python, FastAPI, React, LLMs, Scikit-learn",
-      ">> Objective: Eager to develop impactful technology solutions!"
-    ];
-
     let typingInterval;
     let isRunning = false;
 
     runBtn.addEventListener('click', () => {
+      // Find what code is currently active
+      const activeTab = document.querySelector('.terminal-tab.active');
+      const activeTabName = activeTab ? activeTab.getAttribute('data-tab') : 'profile';
+
       if (isRunning) {
         // Toggle closed
         terminalConsole.classList.add('hidden');
@@ -360,9 +386,43 @@ document.addEventListener('DOMContentLoaded', () => {
       terminalConsole.classList.remove('hidden');
       runBtn.innerHTML = '<i class="fa-solid fa-square"></i> Stop';
       consoleLogEl.textContent = '';
+
+      let logLines = [];
+      if (activeTabName === 'profile') {
+        logLines = [
+          "$ python profile.py",
+          "[INFO] Booting AI engineering environment kernel...",
+          "[INFO] Loading vector database metadata indexes (size: 1536)...",
+          "[SUCCESS] Vector database connected successfully.",
+          "[INFO] Initializing Developer object properties...",
+          "[SUCCESS] Developer initialized: 'Adigarla Sai Vivek'",
+          ">> Name:     Adigarla Sai Vivek",
+          ">> Status:   Ready for professional roles / collaborations",
+          ">> Skills:   Python, FastAPI, React, LLMs, Scikit-learn",
+          ">> Objective: Eager to develop impactful technology solutions!"
+        ];
+      } else if (activeTabName === 'skills') {
+        logLines = [
+          "$ cat skills.json",
+          "[INFO] Loading toolbox definitions in sandbox...",
+          "[SUCCESS] Loaded 4 languages: Python, JS, Java, SQL.",
+          "[SUCCESS] Loaded 3 web frameworks: FastAPI, React, Node.",
+          "[SUCCESS] Loaded AI toolsets: GPT-4, Claude, LangChain, CrewAI.",
+          "[INFO] Running skills validator suite... OK.",
+          ">> Ready to deploy AI & Full-Stack solutions."
+        ];
+      } else {
+        logLines = [
+          "$ vercel deploy --prod",
+          "[INFO] Retreiving local vercel.json configurations...",
+          "[INFO] Building project static assets directories...",
+          "[SUCCESS] 7 pages built successfully (index, about, skills, experience, projects, contact, resume).",
+          "[INFO] Uploading static assets to Vercel CDN edges...",
+          "[SUCCESS] Deploy completed! Live URL: https://portfolio.adigarla.vercel.app"
+        ];
+      }
       
       let lineIndex = 0;
-      
       const printNextLine = () => {
         if (lineIndex < logLines.length) {
           consoleLogEl.textContent += logLines[lineIndex] + '\n';
@@ -378,7 +438,6 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       printNextLine();
-      // Type out logs line-by-line with staggered timing
       typingInterval = setInterval(printNextLine, 350);
     });
   }
@@ -421,6 +480,57 @@ document.addEventListener('DOMContentLoaded', () => {
           tooltip.textContent = 'Copy';
         }, 300);
       });
+    });
+  }
+
+  /* ==========================================================================
+     10. SPOTLIGHT MOUSE GLOWS ON CARD HOVERS (GLOBAL)
+     ========================================================================== */
+  const glassCards = document.querySelectorAll('.glass-card');
+  
+  if (glassCards.length > 0 && window.innerWidth > 768) {
+    glassCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  /* ==========================================================================
+     11. DYNAMIC STAGGERED FADE-IN SCROLL OBSERVER (GLOBAL)
+     ========================================================================== */
+  const cardsToAnimate = document.querySelectorAll('.project-card, .skill-category-card, .stat-card, .education-card, .certifications-block, .contact-info-panel, .contact-form-panel');
+
+  if (cardsToAnimate.length > 0) {
+    // Dynamically assign classes on all selected elements to keep HTML source clean
+    cardsToAnimate.forEach((card, index) => {
+      card.classList.add('animate-fade-in');
+      const delayIndex = (index % 6) + 1; // Staggers from 1 to 6
+      card.classList.add(`stagger-${delayIndex}`);
+    });
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const entranceObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('loaded');
+          observer.unobserve(entry.target); // Trigger once
+        }
+      });
+    }, observerOptions);
+
+    cardsToAnimate.forEach(card => {
+      entranceObserver.observe(card);
     });
   }
 
