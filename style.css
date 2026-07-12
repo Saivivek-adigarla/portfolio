@@ -2250,3 +2250,41 @@ body.light-theme .toast {
 .stagger-4 { animation-delay: 320ms; }
 .stagger-5 { animation-delay: 400ms; }
 .stagger-6 { animation-delay: 480ms; }
+
+/* ==========================================================================
+   14. CENTERED HERO PAGE LAYOUT
+   ========================================================================== */
+.hero-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.hero-content-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-centered .hero-desc {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-centered .hero-cta {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-centered .social-links {
+  justify-content: center;
+}

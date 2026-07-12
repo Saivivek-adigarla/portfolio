@@ -60,8 +60,8 @@
   <main>
     <!-- Hero / Intro Section -->
     <section id="hero" class="hero-section">
-      <div class="section-container hero-grid">
-        <div class="hero-content">
+      <div class="section-container hero-centered">
+        <div class="hero-content-centered">
           <span class="hero-subtitle">// Developer &amp; Data Scientist</span>
           <h1 class="hero-title">Hi, I'm <span class="name-gradient">Adigarla Sai Vivek</span></h1>
           <h2 class="hero-role-wrapper">
@@ -93,92 +93,6 @@
             <a href="tel:+917661098755" aria-label="Call Phone">
               <i class="fa-solid fa-phone"></i>
             </a>
-          </div>
-        </div>
-        
-        <!-- Mock IDE Terminal Card -->
-        <div class="hero-terminal">
-          <div class="terminal-window">
-            <div class="terminal-header">
-              <div class="terminal-buttons">
-                <span class="btn-close"></span>
-                <span class="btn-minimize"></span>
-                <span class="btn-maximize"></span>
-              </div>
-              <div class="terminal-tabs-wrapper">
-                <button class="terminal-tab active" data-tab="profile" aria-label="Show profile.py">
-                  <i class="fa-brands fa-python python-color"></i> profile.py
-                </button>
-                <button class="terminal-tab" data-tab="skills" aria-label="Show skills.json">
-                  <i class="fa-solid fa-code json-color" style="color: #f59e0b;"></i> skills.json
-                </button>
-                <button class="terminal-tab" data-tab="vercel" aria-label="Show vercel.json">
-                  <i class="fa-solid fa-gear vercel-color" style="color: #6366f1;"></i> vercel.json
-                </button>
-              </div>
-              <button id="run-btn" class="terminal-run-btn" title="Run code" aria-label="Run Python script">
-                <i class="fa-solid fa-play"></i> Run
-              </button>
-            </div>
-            
-            <!-- Tab 1: profile.py -->
-            <div class="terminal-body active" id="tab-content-profile">
-              <div class="line-numbers">
-                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-              </div>
-              <pre class="code-editor"><code><span class="keyword">class</span> <span class="class-name">Developer</span>:
-    <span class="keyword">def</span> <span class="method">__init__</span>(<span class="self">self</span>):
-        <span class="self">self</span>.name = <span class="string">"Adigarla Sai Vivek"</span>
-        <span class="self">self</span>.role = <span class="string">"Data Scientist &amp; Dev"</span>
-        <span class="self">self</span>.skills = [
-            <span class="string">"Python"</span>, <span class="string">"FastAPI"</span>, <span class="string">"React"</span>,
-            <span class="string">"LLMs"</span>, <span class="string">"Scikit-learn"</span>
-        ]
-        <span class="self">self</span>.location = <span class="string">"Andhra Pradesh, India"</span>
-
-    <span class="keyword">def</span> <span class="method">get_objective</span>(<span class="self">self</span>):
-        <span class="keyword">return</span> (
-            <span class="string">"Developing impactful tech..."</span>
-        )</code></pre>
-            </div>
-
-            <!-- Tab 2: skills.json -->
-            <div class="terminal-body" id="tab-content-skills" style="display: none;">
-              <div class="line-numbers">
-                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
-              </div>
-              <pre class="code-editor"><code>{
-  <span class="keyword">"languages"</span>: [<span class="string">"Python"</span>, <span class="string">"JavaScript"</span>, <span class="string">"Java"</span>, <span class="string">"SQL"</span>],
-  <span class="keyword">"frameworks"</span>: [<span class="string">"FastAPI"</span>, <span class="string">"React.js"</span>, <span class="string">"Node.js"</span>],
-  <span class="keyword">"ai_engineering"</span>: {
-    <span class="keyword">"llms"</span>: [<span class="string">"GPT-4"</span>, <span class="string">"Claude"</span>, <span class="string">"Llama-3"</span>],
-    <span class="keyword">"rag"</span>: [<span class="string">"ChromaDB"</span>, <span class="string">"VectorStore"</span>],
-    <span class="keyword">"pipelines"</span>: [<span class="string">"LangChain"</span>, <span class="string">"CrewAI"</span>]
-  },
-  <span class="keyword">"databases"</span>: [<span class="string">"MongoDB"</span>, <span class="string">"MySQL"</span>],
-  <span class="keyword">"status"</span>: <span class="string">"open_for_roles_2026"</span>
-}</code></pre>
-            </div>
-
-            <!-- Tab 3: vercel.json -->
-            <div class="terminal-body" id="tab-content-vercel" style="display: none;">
-              <div class="line-numbers">
-                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
-              </div>
-              <pre class="code-editor"><code>{
-  <span class="keyword">"version"</span>: 2,
-  <span class="keyword">"builds"</span>: [
-    { <span class="keyword">"src"</span>: <span class="string">"*.html"</span>, <span class="keyword">"use"</span>: <span class="string">"@vercel/static"</span> }
-  ],
-  <span class="keyword">"cleanUrls"</span>: <span class="keyword">true</span>,
-  <span class="keyword">"status"</span>: <span class="string">"deployed_to_vercel"</span>
-}</code></pre>
-            </div>
-            <!-- Simulated console output -->
-            <div id="terminal-console" class="terminal-console hidden">
-              <div class="console-header">Console Output</div>
-              <pre class="console-log"></pre>
-            </div>
           </div>
         </div>
       </div>
