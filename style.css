@@ -2288,3 +2288,123 @@ body.light-theme .toast {
 .hero-centered .social-links {
   justify-content: center;
 }
+
+/* ==========================================================================
+   14. INTERACTIVE USER EXPERIENCE: CUSTOM CURSOR & AMBIENT EFFECTS
+   ========================================================================== */
+@media (min-width: 769px) {
+  /* Custom Cursor Elements */
+  .custom-cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-blue);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate3d(-50%, -50%, 0);
+    transition: transform 0.08s ease-out;
+  }
+  
+  .custom-cursor-ring {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid rgba(99, 102, 241, 0.4);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate3d(-10px, -10px, 0);
+    transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Hover effects for cursor */
+  .custom-cursor-ring.cursor-hover {
+    width: 44px;
+    height: 44px;
+    border-color: var(--accent-indigo);
+    background-color: rgba(99, 102, 241, 0.05);
+  }
+}
+
+/* Background Morphing Glow Spheres */
+.glow-sphere {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  z-index: -3;
+  filter: blur(140px);
+  opacity: 0.12;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+body.light-theme .glow-sphere {
+  opacity: 0.05;
+}
+
+.sphere-1 {
+  background: radial-gradient(circle, var(--accent-indigo) 0%, transparent 80%);
+  top: -150px;
+  right: -150px;
+  animation: float-slow 20s infinite alternate;
+}
+
+.sphere-2 {
+  background: radial-gradient(circle, var(--accent-blue) 0%, transparent 80%);
+  bottom: -150px;
+  left: -150px;
+  animation: float-slow 25s infinite alternate-reverse;
+}
+
+@keyframes float-slow {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.08); }
+  100% { transform: translate(-30px, 80px) scale(0.95); }
+}
+
+/* Dual-layer interactive highlight on Glass Cards */
+.glass-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background: radial-gradient(350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(99, 102, 241, 0.04), rgba(59, 130, 246, 0.03), transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+}
+
+/* Page Entrance animation system */
+main {
+  animation: pageFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0.4;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

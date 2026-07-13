@@ -414,4 +414,187 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ==========================================================================
+     12. DYNAMIC AMBIENT BACKDROP ELEMENTS (DYNAMIC INJECTION)
+     ========================================================================== */
+  // Inject Background Blur Glow Spheres
+  const sphere1 = document.createElement('div');
+  sphere1.className = 'glow-sphere sphere-1';
+  const sphere2 = document.createElement('div');
+  sphere2.className = 'glow-sphere sphere-2';
+  document.body.appendChild(sphere1);
+  document.body.appendChild(sphere2);
+
+  // Inject Custom Cursor Followers (Desktop Only)
+  if (window.innerWidth > 768) {
+    const dot = document.createElement('div');
+    const ring = document.createElement('div');
+    dot.className = 'custom-cursor-dot';
+    ring.className = 'custom-cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+    
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    });
+    
+    const animateCursor = () => {
+      // Smooth interpolation drag trailing effect
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+      requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+    
+    // Scale up outer ring when hovering clickable elements
+    const hoverables = document.querySelectorAll('a, button, .glass-card, .copy-btn, input, textarea');
+    hoverables.forEach(item => {
+      item.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
+      item.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
+    });
+  }
+
+  /* ==========================================================================
+     13. DYNAMIC PARTICLE CANVAS BACKGROUND
+     ========================================================================== */
+  const canvas = document.createElement('canvas');
+  canvas.id = 'ambient-particles';
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.width = '100vw';
+  canvas.style.height = '100vh';
+  canvas.style.zIndex = '-2';
+  canvas.style.pointerEvents = 'none';
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let mouse = { x: null, y: null, radius: 150 };
+
+  const resizeCanvas = () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+  };
+
+  class Particle {
+    constructor(x, y, dx, dy, size) {
+      this.x = x;
+      this.y = y;
+      this.dx = dx;
+      this.dy = dy;
+      this.size = size;
+    }
+
+    draw() {
+      const isLightTheme = document.body.classList.contains('light-theme');
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+      ctx.fillStyle = isLightTheme ? 'rgba(9, 9, 11, 0.08)' : 'rgba(255, 255, 255, 0.08)';
+      ctx.fill();
+    }
+
+    update() {
+      // Bounce off walls
+      if (this.x + this.size > canvas.width || this.x - this.size < 0) {
+        this.dx = -this.dx;
+      }
+      if (this.y + this.size > canvas.height || this.y - this.size < 0) {
+        this.dy = -this.dy;
+      }
+
+      // Mouse interactive attraction
+      if (mouse.x !== null && mouse.y !== null) {
+        let xDiff = mouse.x - this.x;
+        let yDiff = mouse.y - this.y;
+        let distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+        if (distance < mouse.radius) {
+          this.x += xDiff * 0.01;
+          this.y += yDiff * 0.01;
+        }
+      }
+
+      this.x += this.dx;
+      this.y += this.dy;
+      this.draw();
+    }
+  }
+
+  const initParticles = () => {
+    particles = [];
+    const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 18000));
+    for (let i = 0; i < particleCount; i++) {
+      const size = Math.random() * 2 + 1;
+      const x = Math.random() * (canvas.width - size * 2) + size;
+      const y = Math.random() * (canvas.height - size * 2) + size;
+      const dx = (Math.random() - 0.5) * 0.4;
+      const dy = (Math.random() - 0.5) * 0.4;
+      particles.push(new Particle(x, y, dx, dy, size));
+    }
+  };
+
+  const connectParticles = () => {
+    const isLightTheme = document.body.classList.contains('light-theme');
+    const strokeColor = isLightTheme ? 'rgba(9, 9, 11, 0.02)' : 'rgba(255, 255, 255, 0.02)';
+    const mouseStrokeColor = isLightTheme ? 'rgba(37, 99, 235, 0.04)' : 'rgba(99, 102, 241, 0.04)';
+    
+    for (let a = 0; a < particles.length; a++) {
+      for (let b = a; b < particles.length; b++) {
+        let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) +
+                       ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+        if (distance < 12000) {
+          ctx.strokeStyle = strokeColor;
+          ctx.lineWidth = 0.8;
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(particles[b].x, particles[b].y);
+          ctx.stroke();
+        }
+      }
+
+      // Draw connections to mouse
+      if (mouse.x !== null && mouse.y !== null) {
+        let distanceToMouse = ((particles[a].x - mouse.x) * (particles[a].x - mouse.x)) +
+                              ((particles[a].y - mouse.y) * (particles[a].y - mouse.y));
+        if (distanceToMouse < mouse.radius * mouse.radius) {
+          ctx.strokeStyle = mouseStrokeColor;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+        }
+      }
+    }
+  };
+
+  const animate = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+    }
+    connectParticles();
+    requestAnimationFrame(animate);
+  };
+
+  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+  window.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  resizeCanvas();
+  animate();
+
 });
