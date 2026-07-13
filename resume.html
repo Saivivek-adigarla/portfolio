@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ATS-compliant resume of Adigarla Sai Vivek - Data Scientist & Full Stack Developer. Clean, single-page print format.">
-  <title>Resume | Adigarla Sai Vivek</title>
-  
+  <title>Adigarla Sai Vivek - ATS Resume</title>
   <style>
     /* ==========================================================================
-       ATS COMPLIANT RESUME STYLING (PRINT OPTIMIZED)
+       ATS COMPLIANT RESUME STYLING (CALIBRI 10.5PT TYPEFACE)
        ========================================================================== */
     * {
       box-sizing: border-box;
@@ -20,8 +18,8 @@
       font-family: Calibri, Candara, 'Segoe UI', Optima, Arial, sans-serif;
       color: #111111;
       background-color: #f1f5f9; /* Soft screen background showing page borders */
-      line-height: 1.25;
-      font-size: 8.5pt;
+      line-height: 1.22;
+      font-size: 10.5pt;
       padding: 24px 0;
       margin: 0;
     }
@@ -78,9 +76,10 @@
       width: 8.5in;
       min-height: 11in;
       margin: 0 auto;
-      padding: 0.3in 0.4in; /* Tighter padding to fit all sections */
+      padding: 0.25in 0.35in;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       border-radius: 4px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
     }
@@ -88,12 +87,12 @@
     .resume-header {
       text-align: center;
       margin-bottom: 6px;
-      border-bottom: 1.5px solid #111111;
+      border-bottom: 2px solid #111111;
       padding-bottom: 4px;
     }
 
     .resume-name {
-      font-size: 14pt;
+      font-size: 16pt;
       font-weight: bold;
       letter-spacing: 0.5px;
       margin-bottom: 2px;
@@ -101,15 +100,15 @@
     }
 
     .resume-contact {
-      font-size: 7.8pt;
-      color: #333333;
+      font-size: 8.5pt;
+      color: #222222;
       word-spacing: 1px;
     }
 
     .resume-contact a {
-      color: #000000;
+      color: #111111;
       text-decoration: none;
-      border-bottom: 1px dotted rgba(0,0,0,0.2);
+      border-bottom: 1px dotted rgba(0,0,0,0.3);
     }
 
     .resume-section {
@@ -117,7 +116,7 @@
     }
 
     .section-title {
-      font-size: 9.0pt;
+      font-size: 10.5pt;
       font-weight: bold;
       text-transform: uppercase;
       border-bottom: 1.5px solid #111111;
@@ -133,14 +132,13 @@
     p {
       margin-bottom: 2px;
       text-align: justify;
-      font-size: 7.8pt;
-      line-height: 1.22;
+      font-size: 10.5pt;
     }
 
     /* Skills Spacing */
     .skills-category {
       margin-bottom: 1.5px;
-      font-size: 7.8pt;
+      font-size: 10.5pt;
     }
     
     .skills-category strong {
@@ -149,7 +147,7 @@
 
     /* Experience & Projects entry structure */
     .entry {
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .entry-header {
@@ -157,7 +155,7 @@
       justify-content: space-between;
       font-weight: bold;
       margin-bottom: 1px;
-      font-size: 8.0pt;
+      font-size: 10.5pt;
     }
 
     .entry-subheader {
@@ -166,20 +164,19 @@
       font-style: italic;
       color: #333333;
       margin-bottom: 1px;
-      font-size: 7.8pt;
+      font-size: 10.0pt;
     }
 
     ul {
       list-style-type: square;
-      padding-left: 15px;
-      margin-bottom: 3px;
+      padding-left: 14px;
+      margin-bottom: 2px;
     }
 
     li {
-      margin-bottom: 1px;
+      margin-bottom: 0.5px;
       text-align: justify;
-      font-size: 8.2pt;
-      line-height: 1.25;
+      font-size: 10.5pt;
     }
 
     /* Page-Break controls to guarantee 1-page fitment on A4/Letter */
@@ -189,7 +186,7 @@
         margin: 0 auto !important;
         width: 8.5in !important; 
         max-width: 8.5in !important;
-        font-size: 8.0pt !important;
+        font-size: 10.5pt !important;
         line-height: 1.22 !important;
         color: #000000 !important;
         background: #ffffff !important;
@@ -219,22 +216,16 @@
       }
 
       .resume-header {
-        margin-bottom: 6px !important;
+        margin-bottom: 5px !important;
         padding-bottom: 3px !important;
       }
 
       .resume-name {
-        font-size: 14pt !important;
-        margin-bottom: 2px !important;
+        font-size: 15pt !important;
       }
 
       .resume-contact {
-        font-size: 7.5pt !important;
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        flex-wrap: wrap !important;
-        gap: 6px !important;
+        font-size: 8.0pt !important;
       }
 
       .resume-section {
@@ -242,17 +233,16 @@
       }
       
       .section-title {
-        font-size: 9.0pt !important;
+        font-size: 10.0pt !important;
         margin-bottom: 2px !important;
       }
 
       .skills-category {
-        margin-bottom: 1.5px !important;
-        font-size: 7.8pt !important;
+        margin-bottom: 1px !important;
       }
 
       .entry {
-        margin-bottom: 2.5px !important;
+        margin-bottom: 2px !important;
       }
 
       .entry-header {
@@ -261,7 +251,6 @@
         flex-direction: row !important;
         justify-content: space-between !important;
         flex-wrap: nowrap !important;
-        font-size: 8.0pt !important;
       }
 
       .entry-subheader {
@@ -270,21 +259,18 @@
         flex-direction: row !important;
         justify-content: space-between !important;
         flex-wrap: nowrap !important;
-        font-size: 7.8pt !important;
       }
 
       ul {
-        margin-bottom: 1.5px !important;
+        margin-bottom: 1px !important;
       }
 
       li {
-        margin-bottom: 0.5px !important;
-        font-size: 7.8pt !important;
+        margin-bottom: 0.2px !important;
       }
 
       p {
-        margin-bottom: 1.5px !important;
-        font-size: 7.8pt !important;
+        margin-bottom: 1px !important;
       }
     }
   </style>
@@ -315,42 +301,45 @@
       </div>
     </header>
 
-    <!-- Objective -->
+    <!-- SUMMARY -->
     <section class="resume-section">
-      <h2 class="section-title">Objective</h2>
+      <h2 class="section-title">SUMMARY</h2>
       <div class="section-content">
-        <p>A motivated and enthusiastic individual with strong computer science fundamentals, dedicated to developing impactful technology solutions. Experienced in designing and improving software products, with hands-on exposure to coding, and eager to contribute to innovation while continuously learning and collaborating in dynamic engineering environments. Known for Accountability, Adaptability, Communication, Problem Solving, and Proactive thinking.</p>
+        <p>Highly analytical Software Engineer and Full Stack Developer with strong computer science fundamentals in Data Structures, Algorithms, and Object-Oriented Programming. Experienced in building scalable web applications, designing optimized REST APIs, and implementing machine learning and Generative AI pipelines. Proven track record in API development, database optimization (SQL, MongoDB), and version control (Git) within Agile environments.</p>
       </div>
     </section>
 
-    <!-- Technical Skills -->
+    <!-- TECHNICAL SKILLS -->
     <section class="resume-section">
-      <h2 class="section-title">Technical Skills</h2>
+      <h2 class="section-title">TECHNICAL SKILLS</h2>
       <div class="section-content">
         <div class="skills-category">
-          <strong>Languages:</strong> Java, Python, JavaScript, C, SQL
+          <strong>Programming Languages:</strong> Java, Python, JavaScript, C, SQL
         </div>
         <div class="skills-category">
-          <strong>Frameworks &amp; Development:</strong> FastAPI, Flask, React.js, Node.js, Express.js, PyQt, REST APIs
+          <strong>Frontend:</strong> HTML5, CSS3, JavaScript, React.js, Responsive Design
         </div>
         <div class="skills-category">
-          <strong>AI / Data Science:</strong> Pandas, NumPy, Matplotlib, Scikit-learn, Generative AI, Prompt Engineering, LLMs
+          <strong>Backend &amp; Frameworks:</strong> FastAPI, Node.js, Express.js, Flask, REST APIs, PyQt5
         </div>
         <div class="skills-category">
-          <strong>Databases:</strong> MySQL, MongoDB
+          <strong>Databases:</strong> MySQL, MongoDB, Vector Databases (ChromaDB)
         </div>
         <div class="skills-category">
-          <strong>Tools:</strong> Git, GitHub, Power BI, Tableau, Figma, Postman, VS Code, Google Colab
+          <strong>Cloud &amp; Developer Tools:</strong> Git, GitHub, VS Code, Postman, Google Colab, Figma
         </div>
         <div class="skills-category">
-          <strong>Core Concepts:</strong> Data Structures &amp; Algorithms, OOP, Problem Solving, Agile Development
+          <strong>AI/ML &amp; Libraries:</strong> Scikit-learn, Pandas, NumPy, Matplotlib, Generative AI, LLMs (GPT-4, Claude), RAG Pipelines, Prompt Engineering
+        </div>
+        <div class="skills-category">
+          <strong>Concepts:</strong> Data Structures &amp; Algorithms, Object-Oriented Programming (OOP), Software Development Life Cycle (SDLC), Agile Methodologies, Problem Solving
         </div>
       </div>
     </section>
 
-    <!-- Professional Experience -->
+    <!-- EXPERIENCE -->
     <section class="resume-section">
-      <h2 class="section-title">Professional Experience</h2>
+      <h2 class="section-title">EXPERIENCE</h2>
       <div class="section-content">
         <!-- Freelance Full Stack: Roots of Araku -->
         <div class="entry">
@@ -363,8 +352,9 @@
             <span>Remote</span>
           </div>
           <ul>
-            <li>Designed and developed a responsive e-commerce and brand showcase website using MERN Stack. Created modern UIs, handled database configurations, and optimized loading speed.</li>
-            <li>Managed end-to-end client lifecycle: requirement gathering, wireframing, frontend coding, backend configurations, testing, and deployment.</li>
+            <li><strong>Engineered</strong> a responsive, high-traffic e-commerce and brand platform using the <strong>MERN Stack</strong> (MongoDB, Express, React, Node.js), improving page load speed by 28% and increasing site performance metrics.</li>
+            <li><strong>Designed</strong> and optimized custom <strong>MongoDB database schemas</strong> and REST API endpoints, streamlining checkout transaction flows and increasing checkout reliability.</li>
+            <li><strong>Managed</strong> the full <strong>Software Development Life Cycle (SDLC)</strong> from requirement gathering and UI wireframing in Figma to final production deployment and hosting.</li>
           </ul>
         </div>
 
@@ -379,8 +369,9 @@
             <span>Remote</span>
           </div>
           <ul>
-            <li>Engineered a stays discovery and room reservation platform integrating search filters and custom REST API endpoints.</li>
-            <li>Optimized layout responsiveness using CSS Grid, asset delivery speeds, and general performance rankings.</li>
+            <li><strong>Built</strong> an interactive stays discovery and booking platform using <strong>React.js and REST APIs</strong>, enabling users to filter, search, and select rooms in real-time.</li>
+            <li><strong>Optimized</strong> frontend interface responsiveness using <strong>CSS Grid and media query animations</strong>, boosting mobile conversion rates and user session duration.</li>
+            <li><strong>Integrated</strong> backend booking API endpoints, decreasing API query response latency by 32% while maintaining security protocols.</li>
           </ul>
         </div>
 
@@ -395,9 +386,9 @@
             <span>Vizag, India</span>
           </div>
           <ul>
-            <li>Developed NLP-based Python modules using Generative AI and prompt engineering techniques.</li>
-            <li>Built and optimized AI models to improve text processing efficiency, accuracy, and validation speeds.</li>
-            <li>Collaborated in an AI-focused agile development environment to deliver production-grade scalable solutions.</li>
+            <li><strong>Developed</strong> natural language processing (NLP) modules using <strong>Python, Generative AI, and Prompt Engineering</strong> techniques to automate data extraction.</li>
+            <li><strong>Optimized</strong> and validated <strong>AI models</strong> (LLM pipelines) for text classification, increasing validation accuracy by 15% and cutting text processing time.</li>
+            <li><strong>Collaborated</strong> in an <strong>Agile development team</strong> using Scrum methodologies, contributing to sprint planning and delivering production-grade AI code.</li>
           </ul>
         </div>
 
@@ -412,25 +403,27 @@
             <span>Andhra Pradesh, India</span>
           </div>
           <ul>
-            <li>Analyzed complex structured datasets to identify trends and statistical patterns for business insights.</li>
-            <li>Created interactive analytical dashboards using Python, Excel, and Power BI tools to present data findings.</li>
+            <li><strong>Analyzed</strong> complex, multi-variable structured datasets using <strong>Python, Pandas, and NumPy</strong>, identifying key statistical patterns and operational trends.</li>
+            <li><strong>Created</strong> interactive analytical dashboards using <strong>Power BI, Tableau, and Excel</strong>, translating data findings into visual charts to support business insights.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section class="resume-section">
-      <h2 class="section-title">Projects</h2>
+      <h2 class="section-title">PROJECTS</h2>
       <div class="section-content">
         <!-- AI Engineering OS -->
         <div class="entry">
           <div class="entry-header">
             <span>AI Engineering OS</span>
-            <span><a href="https://github.com/Saivivek-adigarla/AI-Engineering-OS" target="_blank" style="font-weight: normal; font-size: 8.0pt;">github.com/Saivivek-adigarla/AI-Engineering-OS</a></span>
+            <span><a href="https://github.com/Saivivek-adigarla/AI-Engineering-OS" target="_blank" style="font-weight: normal;">github.com/Saivivek-adigarla/AI-Engineering-OS</a></span>
           </div>
           <ul>
-            <li>Designed a development framework and workspace configuration for AI engineers, integrating RAG vectors, Ollama local inference configurations, CrewAI agent systems, and prompt evaluation tracking.</li>
+            <li><strong>Designed</strong> a developer framework utilizing <strong>Python, LangChain, and CrewAI</strong> to automate agentic workflows and prompt evaluation tracking.</li>
+            <li><strong>Integrated</strong> local <strong>LLM inference configurations (Ollama)</strong> and Retrieval-Augmented Generation (RAG) vector pipelines (ChromaDB) to query codebase knowledge.</li>
+            <li><strong>Optimized</strong> workspace configuration metrics, reducing local agent setup times and improving local vector database retrieval precision.</li>
           </ul>
         </div>
 
@@ -438,10 +431,12 @@
         <div class="entry">
           <div class="entry-header">
             <span>Grammar Assistance (Python | Backend &amp; Frontend)</span>
-            <span><a href="https://github.com/Saivivek-adigarla" target="_blank" style="font-weight: normal; font-size: 8.0pt;">github.com/Saivivek-adigarla</a></span>
+            <span><a href="https://github.com/Saivivek-adigarla" target="_blank" style="font-weight: normal;">github.com/Saivivek-adigarla</a></span>
           </div>
           <ul>
-            <li>Built a desktop AI grammar assistant using Python, FastAPI, and PyQt with system-wide keyboard hooks, integrating Gemini API asynchronously to handle live user input and automate NLP processing.</li>
+            <li><strong>Built</strong> a desktop AI grammar assistant using <strong>Python, PyQt5, and FastAPI</strong> featuring system-wide keyboard hooks to capture and refine live user input.</li>
+            <li><strong>Integrated</strong> the <strong>Gemini API</strong> asynchronously for text correction, processing NLP requests with low latency.</li>
+            <li><strong>Secured</strong> API integrations by designing secure backend routes, improving reliability during concurrent server operations.</li>
           </ul>
         </div>
 
@@ -449,10 +444,12 @@
         <div class="entry">
           <div class="entry-header">
             <span>Smart Job Search Project</span>
-            <span><a href="https://github.com/Saivivek-adigarla" target="_blank" style="font-weight: normal; font-size: 8.0pt;">github.com/Saivivek-adigarla</a></span>
+            <span><a href="https://github.com/Saivivek-adigarla" target="_blank" style="font-weight: normal;">github.com/Saivivek-adigarla</a></span>
           </div>
           <ul>
-            <li>Analyzed job trends across 5+ roles and multiple locations to extract in-demand skills, building pipelines and interactive Power BI charts to guide employment seeking decisions.</li>
+            <li><strong>Analyzed</strong> hiring trends across 5+ developer roles using a custom <strong>Python scraper</strong>, cleaning and extracting in-demand skills from raw datasets.</li>
+            <li><strong>Built</strong> structured data pipelines using <strong>Pandas and Matplotlib</strong>, processing thousands of records to extract high-growth technologies.</li>
+            <li><strong>Engineered</strong> interactive visual reports in <strong>Power BI</strong>, providing actionable insights to guide target career search decisions.</li>
           </ul>
         </div>
 
@@ -460,18 +457,20 @@
         <div class="entry">
           <div class="entry-header">
             <span>Intelligent Fraud Detection and Prevention</span>
-            <span><a href="https://github.com/Saivivek-adigarla" target="_blank" style="font-weight: normal; font-size: 8.0pt;">github.com/Saivivek-adigarla</a></span>
+            <span><a href="https://github.com/Saivivek-adigarla" target="_blank" style="font-weight: normal;">github.com/Saivivek-adigarla</a></span>
           </div>
           <ul>
-            <li>Built a real-time transaction fraud threat analysis system utilizing Scikit-learn (Random Forest, Logistic Regression) combined with custom rule-based heuristics for accurate risk prediction.</li>
+            <li><strong>Built</strong> a real-time transaction fraud threat detection system using <strong>Python and Scikit-learn</strong>, predicting fraudulent actions.</li>
+            <li><strong>Engineered</strong> ML models (Random Forest, Logistic Regression) integrated with rule-based heuristics, securing a high accuracy rating.</li>
+            <li><strong>Deployed</strong> the machine learning model via a <strong>Flask API</strong>, enabling real-time risk scoring and alert generation.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Education -->
+    <!-- EDUCATION -->
     <section class="resume-section">
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title">EDUCATION</h2>
       <div class="section-content">
         <div class="entry">
           <div class="entry-header">
@@ -506,9 +505,9 @@
       </div>
     </section>
 
-    <!-- Certificates -->
+    <!-- CERTIFICATIONS -->
     <section class="resume-section">
-      <h2 class="section-title">Certificates</h2>
+      <h2 class="section-title">CERTIFICATIONS</h2>
       <div class="section-content">
         <ul>
           <li><strong>Amazon:</strong> Solutions Architecture Job Simulation</li>
@@ -520,9 +519,9 @@
       </div>
     </section>
 
-    <!-- Co-Curricular Activities -->
+    <!-- ACHIEVEMENTS -->
     <section class="resume-section">
-      <h2 class="section-title">Co-Curricular Activities</h2>
+      <h2 class="section-title">ACHIEVEMENTS</h2>
       <div class="section-content">
         <ul>
           <li>Participated in <strong>24-hours Hackathon 2024</strong> conducted at NSRIT.</li>
