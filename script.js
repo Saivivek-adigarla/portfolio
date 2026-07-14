@@ -497,7 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isLightTheme = document.body.classList.contains('light-theme');
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-      ctx.fillStyle = isLightTheme ? 'rgba(9, 9, 11, 0.08)' : 'rgba(255, 255, 255, 0.08)';
+      ctx.fillStyle = isLightTheme ? 'rgba(15, 23, 42, 0.08)' : 'rgba(255, 255, 255, 0.08)';
       ctx.fill();
     }
 
@@ -542,8 +542,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const connectParticles = () => {
     const isLightTheme = document.body.classList.contains('light-theme');
-    const strokeColor = isLightTheme ? 'rgba(9, 9, 11, 0.02)' : 'rgba(255, 255, 255, 0.02)';
-    const mouseStrokeColor = isLightTheme ? 'rgba(37, 99, 235, 0.04)' : 'rgba(99, 102, 241, 0.04)';
+    const strokeColor = isLightTheme ? 'rgba(15, 23, 42, 0.03)' : 'rgba(255, 255, 255, 0.02)';
+    const mouseStrokeColor = isLightTheme ? 'rgba(37, 99, 235, 0.06)' : 'rgba(99, 102, 241, 0.04)';
     
     for (let a = 0; a < particles.length; a++) {
       for (let b = a; b < particles.length; b++) {
