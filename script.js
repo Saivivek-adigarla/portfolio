@@ -597,4 +597,115 @@ document.addEventListener('DOMContentLoaded', () => {
   resizeCanvas();
   animate();
 
+  /* ==========================================================================
+     14. INTERACTIVE SYSTEM CONTROL CENTER (AI TERMINAL & DIAGNOSTICS)
+     ========================================================================== */
+  const tabButtons = document.querySelectorAll('.terminal-nav-tab');
+  const panels = document.querySelectorAll('.terminal-panel');
+  
+  if (tabButtons.length > 0 && panels.length > 0) {
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle tabs active class
+        tabButtons.forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Toggle panels active class
+        const targetTab = btn.getAttribute('data-tab');
+        panels.forEach(panel => {
+          panel.classList.remove('active');
+          if (panel.id === `panel-${targetTab}`) {
+            panel.classList.add('active');
+          }
+        });
+      });
+    });
+  }
+
+  // CLI Command Logic
+  const cliInput = document.getElementById('cli-input-field');
+  const cliLog = document.getElementById('cli-output-log');
+  const cliBtns = document.querySelectorAll('.cli-btn');
+
+  if (cliInput && cliLog) {
+    const appendLine = (content, className = '') => {
+      const line = document.createElement('div');
+      line.className = `cli-line ${className}`;
+      line.innerHTML = content;
+      cliLog.appendChild(line);
+      cliLog.scrollTop = cliLog.scrollHeight; // Auto-scroll to bottom
+    };
+
+    const runCommand = (cmdText) => {
+      const cleanCmd = cmdText.trim().toLowerCase();
+      if (!cleanCmd) return;
+
+      // Echo command
+      appendLine(`<span class="cli-prompt">guest@saivivek_os:~$</span> ${cmdText}`);
+
+      // Command matches
+      if (cleanCmd === 'help') {
+        appendLine('Available Commands:', 'keyword');
+        appendLine('  <span class="method">run model_check</span> - Run validation epoch diagnostics');
+        appendLine('  <span class="method">skills --all</span>      - Fetch structured developer tech stack');
+        appendLine('  <span class="method">fetch bio</span>          - Download career objectives metadata');
+        appendLine('  <span class="method">clear</span>              - Clear the terminal screen log');
+        appendLine('  <span class="method">help</span>               - List all operations');
+      } else if (cleanCmd === 'clear') {
+        cliLog.innerHTML = '';
+      } else if (cleanCmd === 'fetch bio') {
+        appendLine('Retrieving biography profile...', 'comment');
+        setTimeout(() => {
+          appendLine('<span class="keyword">Profile Objective:</span> Specializing in AI/ML solutions, NLP, data analytics, and responsive full-stack applications.');
+          appendLine('Eager to solve real-world problems with elegant, scalable code.');
+        }, 300);
+      } else if (cleanCmd === 'skills --all') {
+        appendLine('Fetching developer skills stack database...', 'comment');
+        setTimeout(() => {
+          appendLine('<span class="keyword">{</span>');
+          appendLine('  <span class="class-name">"languages":</span> ["Python", "JavaScript", "Java", "SQL", "C"],');
+          appendLine('  <span class="class-name">"frameworks":</span> ["FastAPI", "React", "Node.js", "Express", "MongoDB"],');
+          appendLine('  <span class="class-name">"ai_ml":</span> ["NLP", "RAG", "LLMs", "ChromaDB", "Vector Search"]');
+          appendLine('<span class="keyword">}</span>');
+        }, 450);
+      } else if (cleanCmd === 'run model_check') {
+        appendLine('Initializing model testing sequences...', 'comment');
+        
+        let steps = [
+          { t: 200, m: 'Loading weights: <span class="string">saivivek-llama-7b-int8.bin</span>...' },
+          { t: 500, m: 'Verifying embeddings layer: dim=<span class="keyword">1536</span>... <span class="text-emerald">OK</span>' },
+          { t: 900, m: 'Epoch 1/3: Loss=<span class="self">0.245</span> | Accuracy=<span class="text-emerald">91.2%</span>' },
+          { t: 1300, m: 'Epoch 2/3: Loss=<span class="self">0.158</span> | Accuracy=<span class="text-emerald">94.8%</span>' },
+          { t: 1700, m: 'Epoch 3/3: Loss=<span class="self">0.089</span> | Accuracy=<span class="text-emerald">98.4%</span>' },
+          { t: 2000, m: 'Evaluation status: <span class="text-emerald">OPTIMIZED</span>. Validation complete.' }
+        ];
+
+        steps.forEach(step => {
+          setTimeout(() => {
+            appendLine(step.m);
+          }, step.t);
+        });
+      } else {
+        appendLine(`saivivek_os: command not found: <span class="self">${cmdText}</span>. Type <span class="keyword">help</span> for options.`);
+      }
+
+      cliInput.value = '';
+    };
+
+    // Listen to Enter Keypress
+    cliInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        runCommand(cliInput.value);
+      }
+    });
+
+    // Listen to Shortcut buttons clicks
+    cliBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cmd = btn.getAttribute('data-cmd');
+        runCommand(cmd);
+      });
+    });
+  }
+
 });

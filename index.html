@@ -97,6 +97,159 @@
         </div>
       </div>
     </section>
+
+    <!-- Interactive AI Console Section -->
+    <section id="ai-console" class="ai-console-section">
+      <div class="section-container">
+        <h2 class="section-title left-align">System Control Center</h2>
+        <p class="section-subtitle left-align" style="margin-left: 0; margin-bottom: 2.5rem;">Interact with my developer environment, neural model diagnostics, and system agents in real-time.</p>
+        
+        <div class="terminal-window glass-card">
+          <!-- Window Header Bar -->
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="btn-close"></span>
+              <span class="btn-minimize"></span>
+              <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title">saivivek_os -- v1.0.5</div>
+            <div class="terminal-status">
+              <span class="status-indicator-green"></span>
+              <span class="status-text">SYSTEMS OPERATIONAL</span>
+            </div>
+          </div>
+          
+          <!-- Tab Navigation -->
+          <div class="terminal-nav">
+            <button class="terminal-nav-tab active" data-tab="cli">
+              <i class="fa-solid fa-terminal"></i> Terminal CLI
+            </button>
+            <button class="terminal-nav-tab" data-tab="specs">
+              <i class="fa-solid fa-brain"></i> Model Specs
+            </button>
+            <button class="terminal-nav-tab" data-tab="diagnostics">
+              <i class="fa-solid fa-microchip"></i> Diagnostics
+            </button>
+            <button class="terminal-nav-tab" data-tab="agents">
+              <i class="fa-solid fa-network-wired"></i> Active Agents
+            </button>
+          </div>
+          
+          <!-- Terminal Content Panels -->
+          <div class="terminal-content">
+            <!-- CLI Content Panel -->
+            <div class="terminal-panel active" id="panel-cli">
+              <div class="cli-output" id="cli-output-log">
+                <div class="cli-line comment">// Welcome to Sai Vivek's AI Systems Console.</div>
+                <div class="cli-line comment">// Type a command below or click one of the quick shortcuts.</div>
+                <div class="cli-line">Type <span class="keyword">help</span> for a list of available commands.</div>
+              </div>
+              <div class="cli-input-wrapper">
+                <span class="cli-prompt">guest@saivivek_os:~$</span>
+                <input type="text" id="cli-input-field" placeholder="Enter command..." autocomplete="off">
+              </div>
+              <div class="cli-shortcuts">
+                <span class="shortcut-label">Quick Actions:</span>
+                <button class="cli-btn" data-cmd="help">help</button>
+                <button class="cli-btn" data-cmd="run model_check">run model_check</button>
+                <button class="cli-btn" data-cmd="skills --all">skills --all</button>
+                <button class="cli-btn" data-cmd="clear">clear</button>
+              </div>
+            </div>
+            
+            <!-- Specs Content Panel -->
+            <div class="terminal-panel" id="panel-specs">
+              <div class="specs-grid">
+                <div class="spec-card">
+                  <div class="spec-label">MODEL PARAMS</div>
+                  <div class="spec-value accent-cyan">7.2B Parameters</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">INFERENCE SPEED</div>
+                  <div class="spec-value accent-indigo">14ms / Token</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">RAG EMBEDDINGS</div>
+                  <div class="spec-value accent-blue">1536 (Text-002)</div>
+                </div>
+                <div class="spec-card">
+                  <div class="spec-label">QUANTIZATION</div>
+                  <div class="spec-value accent-purple">INT8 Precision</div>
+                </div>
+              </div>
+              <div class="specs-notes">
+                <div class="cli-line comment">// Model configuration optimized for local edge deployment.</div>
+                <div class="cli-line">Fine-tuned on MERN architecture patterns, FastAPI microservices, and general computer science problem-solving datasets.</div>
+              </div>
+            </div>
+            
+            <!-- Diagnostics Content Panel -->
+            <div class="terminal-panel" id="panel-diagnostics">
+              <div class="diagnostics-list">
+                <div class="diag-item">
+                  <div class="diag-header">
+                    <span>NLP &amp; RAG System</span>
+                    <span class="diag-status text-emerald">Active</span>
+                  </div>
+                  <div class="diag-bar-wrapper">
+                    <div class="diag-bar bar-emerald" style="width: 96%;"></div>
+                  </div>
+                  <div class="diag-meta">Accuracy: 96.4% | Latency: 18ms</div>
+                </div>
+                <div class="diag-item">
+                  <div class="diag-header">
+                    <span>MERN Backend APIs</span>
+                    <span class="diag-status text-emerald">Active</span>
+                  </div>
+                  <div class="diag-bar-wrapper">
+                    <div class="diag-bar bar-blue" style="width: 98%;"></div>
+                  </div>
+                  <div class="diag-meta">Uptime: 99.98% | Request Rate: 48/s</div>
+                </div>
+                <div class="diag-item">
+                  <div class="diag-header">
+                    <span>Data Analysis Pipelines</span>
+                    <span class="diag-status text-cyan">Optimized</span>
+                  </div>
+                  <div class="diag-bar-wrapper">
+                    <div class="diag-bar bar-cyan" style="width: 94%;"></div>
+                  </div>
+                  <div class="diag-meta">Processing Rate: 12.4k rows/s</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Active Agents Content Panel -->
+            <div class="terminal-panel" id="panel-agents">
+              <div class="agents-console">
+                <div class="agent-item">
+                  <div class="agent-avatar"><i class="fa-solid fa-robot"></i></div>
+                  <div class="agent-info">
+                    <div class="agent-name">RAG Orchestrator</div>
+                    <div class="agent-activity comment">Searching knowledge graph for portfolio data...</div>
+                  </div>
+                </div>
+                <div class="agent-item">
+                  <div class="agent-avatar"><i class="fa-solid fa-chart-line"></i></div>
+                  <div class="agent-info">
+                    <div class="agent-name">Data Pipeline Agent</div>
+                    <div class="agent-activity comment">Normalizing input matrices for model evaluation...</div>
+                  </div>
+                </div>
+                <div class="agent-item">
+                  <div class="agent-avatar"><i class="fa-solid fa-code-branch"></i></div>
+                  <div class="agent-info">
+                    <div class="agent-name">Deployment Orchestrator</div>
+                    <div class="agent-activity comment">Monitoring Vercel and GitHub deployment webhooks...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
