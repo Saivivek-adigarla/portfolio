@@ -847,16 +847,49 @@ body.light-theme .profile-avatar-frame::before {
   flex-direction: column;
   gap: 10px;
 }
-
 .dashboard-skill-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 12px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid rgba(255, 255, 255, 0.02);
   border-radius: 6px;
   transition: all var(--transition-fast);
+}
+
+.skill-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.skill-progress-bar-wrapper {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+body.light-theme .skill-progress-bar-wrapper {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.skill-progress-bar {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.skill-progress-bar.bar-expert {
+  background: var(--accent-blue);
+}
+.skill-progress-bar.bar-advanced {
+  background: var(--accent-indigo);
+}
+.skill-progress-bar.bar-intermediate {
+  background: var(--accent-success);
 }
 
 body.light-theme .dashboard-skill-item {
